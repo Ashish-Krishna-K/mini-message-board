@@ -1,5 +1,15 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  button 
+    a(href="/new") Add Message! 
+  ul 
+    each val in messages
+      li.message 
+        p 
+          strong 
+            span.name= val.user
+          span : 
+          span.msg-text= val.text
+        p.date-added= val.added
+  
