@@ -1,11 +1,37 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
+  <%- include('./partials/head') %>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <%- include('./partials/header') %>
+    <main>
+      <h2>
+        Welcome to <%= title %>
+      </h2>
+      <% if (locals.messages) {%>
+        <ul>
+          <%for (let message of locals.messages) { %>
+            <li>
+              <h3><%= message.text%></h3>
+              <p>by, <%= message.user %></p>
+              <p>
+                <%= 
+                  message.added.toLocaleDateString('en', 
+                    {
+                      day: 'numeric',
+                      month: 'short',
+                      year: 'numeric',
+                    } 
+                  )
+                %>
+              </p>
+            </li>
+          <% } %>
+        </ul>
+      <% } else { %>
+        <p>No messages to view!</p>
+      <% } %>
+      <p><a href="/new">Click here</a> to add a new message.</p>
+    </main>
+    <%- include('./partials/footer') %>
   </body>
 </html>

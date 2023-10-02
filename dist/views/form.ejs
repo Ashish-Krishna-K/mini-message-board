@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <%- include('./partials/head') %>
+  <body>
+    <%- include('./partials/header') %>
+    <main>
+      <h2>Add new message</h2>
+      <form action="/new" method="post">
+        <div>
+          <label for="message">Message: </label>
+          <input type="text" id="message">
+        </div>
+        <div>
+          <label for="userName">Your Name: </label>
+          <input type="text" id="userName">
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </main>
+    <%- include('./partials/footer') %>
+  </body>
+</html>
