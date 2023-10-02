@@ -5,32 +5,38 @@
     <%- include('./partials/header') %>
     <main>
       <h2>
-        Welcome to <%= title %>
+        Welcome
       </h2>
-      <% if (locals.messages) {%>
-        <ul>
-          <%for (let message of locals.messages) { %>
-            <li>
-              <h3><%= message.text%></h3>
-              <p>by, <%= message.user %></p>
-              <p>
-                <%= 
-                  message.added.toLocaleDateString('en', 
-                    {
-                      day: 'numeric',
-                      month: 'short',
-                      year: 'numeric',
-                    } 
-                  )
-                %>
-              </p>
-            </li>
+      <div class="container">
+        <a href="/new" class="add-message">Add new message</a>
+        <div class="messages">
+          <% if (locals.messages) { %>
+            <ul class="messages-list">
+              <% for (let message of locals.messages) { %>
+                <li class="message-item">
+                  <span class="message-timestamp">
+                    <em>
+                      <%=
+                        message.added.toLocaleDateString('en',
+                          {
+                            day: 'numeric',
+                            month: 'short',
+                            year: 'numeric',
+                          }
+                        )
+                      %>
+                    </em>
+                  </span>
+                  <span><strong><%= message.user %> says:&nbsp;</strong></span>
+                  <span><%= message.text%></span>  
+                </li>
+              <% } %>
+            </ul>
+          <% } else { %>
+            <p>No messages to view!</p>
           <% } %>
-        </ul>
-      <% } else { %>
-        <p>No messages to view!</p>
-      <% } %>
-      <p><a href="/new">Click here</a> to add a new message.</p>
+        </div>
+      </div>
     </main>
     <%- include('./partials/footer') %>
   </body>

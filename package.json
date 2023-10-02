@@ -4,9 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "tsc && cp -r src/public/ dist/ && cp -r src/views/ dist/",
+    "build": "rm -r dist/ && tsc && cp -r src/public/ dist/ && cp -r src/views/ dist/",
     "start": "node ./bin/www.js",
-    "format": "prettier . --write",
+    "format": "prettier src/. dist/. --write",
     "lint": "eslint src/**/*.ts --fix && npm run format"
   },
   "dependencies": {
