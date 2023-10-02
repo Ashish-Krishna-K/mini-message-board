@@ -4,9 +4,11 @@
  * Module dependencies.
  */
 
-var app = require('../app');
-var debug = require('debug')('mini-message-board:server');
-var http = require('http');
+import app from "../dist/app.js";
+import debug from "debug";
+import http from "http";
+
+debug('mini-message-board:server');
 
 /**
  * Get port from environment and store in Express.
