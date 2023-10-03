@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "rm -r dist/ && tsc && cp -r src/public/ dist/ && cp -r src/views/ dist/",
+    "build": "npm install && rm -r dist/ && tsc && cp -r src/public/ dist/ && cp -r src/views/ dist/",
     "start": "node ./bin/www.js",
     "format": "prettier src/. dist/. --write",
     "lint": "eslint src/**/*.ts --fix && npm run format"
